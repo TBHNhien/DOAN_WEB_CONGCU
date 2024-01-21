@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -24,29 +25,51 @@ namespace OnlineShop.Areas.Admin.Controllers
         public ActionResult Index(LoginModel model)
         {
             // Thực hiện kiểm tra đăng nhập
-            var result = new AccountModel().Login(model.UserName, model.Password);
-            if (result && ModelState.IsValid)
+            //var result = new AccountModel().Login(model.UserName, model.Password);
+            //if (result && ModelState.IsValid)
+            //{
+            //    // C1 Kiểm tra có giữ session không, nếu có thì xoá đi để tạo session mới
+            //    //var existingSession = SessionHelper.GetSession();
+
+
+            //    if (existingSession != null)
+            //    {
+            //        Session.Abandon();
+            //    }
+
+            //    // Set session mới
+            //    SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
+
+            //    // Chuyển hướng đến trang Index của controller Home
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //else
+            //{
+            //    // Logic xử lý khi đăng nhập không thành công
+            //    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+            //}
+            //    return View(model);
+
+            //C2 DÙNG Membership
+            if (Membership.ValidateUser(model.UserName,model.Password) && ModelState.IsValid)
             {
-                // Kiểm tra có giữ session không, nếu có thì xoá đi để tạo session mới
-                var existingSession = SessionHelper.GetSession();
-                if (existingSession != null)
-                {
-                    Session.Abandon();
-                }
-
-                // Set session mới
-                SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
-
-                // Chuyển hướng đến trang Index của controller Home
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             else
             {
                 // Logic xử lý khi đăng nhập không thành công
                 ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
-                return View(model);
             }
+            return View(model);
+
         }
-        
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();//huỷ tất cả cookies vs session đc tạo 
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }
