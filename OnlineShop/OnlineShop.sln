@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop", "OnlineShop.csproj", "{9D13C074-1509-4099-A028-03DA1B6BD18B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{902A127F-045F-405C-8BD9-240B5DF46C46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D13C074-1509-4099-A028-03DA1B6BD18B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D13C074-1509-4099-A028-03DA1B6BD18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D13C074-1509-4099-A028-03DA1B6BD18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D13C074-1509-4099-A028-03DA1B6BD18B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{902A127F-045F-405C-8BD9-240B5DF46C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{902A127F-045F-405C-8BD9-240B5DF46C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{902A127F-045F-405C-8BD9-240B5DF46C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{902A127F-045F-405C-8BD9-240B5DF46C46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7E61F70-B33C-451D-9126-DF419AE2F129}
+	EndGlobalSection
+EndGlobal
