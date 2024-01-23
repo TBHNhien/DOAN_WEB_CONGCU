@@ -4,13 +4,13 @@
 --USE OnlineShop_Text
 --GO
 
-CREATE TABLE Account 
-(
-	UserName VARCHAR(20) PRIMARY KEY,
-	Password VARCHAR(50)
+--CREATE TABLE Account 
+--(
+--	UserName VARCHAR(20) PRIMARY KEY,
+--	Password VARCHAR(50)
 
-)
-GO
+--)
+--GO
 
 ---- Xóa khoá chính hiện tại
 --ALTER TABLE Account

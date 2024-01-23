@@ -1782,6 +1782,8 @@
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
@@ -1796,6 +1798,7 @@
     <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Code\SessionHelper.cs" />
     <Compile Include="Areas\Admin\Code\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
