@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<Model.EF.User>
+
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Quản lý người dùng ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách người dùng
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng </h6>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tài khoản</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Tài khoản</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="/Admin/User/Edit/@item.ID">Sửa</a>
+                                    |
+                                    <a href="/Admin/User/Delete/@item.ID">Xoá</a>
+                                </td>
+                                <td>@item.UserName</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model,page => Url.Action("Index", new {page}))
+            </div>
+        </div>
+    </div>
+</div>
