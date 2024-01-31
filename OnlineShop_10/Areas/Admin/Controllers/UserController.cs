@@ -16,11 +16,12 @@ namespace OnlineShop_10.Areas.Admin.Controllers
         public int page = 1;
         public int pageSize = 1;
         // GET: Admin/User
-        public ActionResult Index(int page = 1 , int pageSize = 1)
+        public ActionResult Index(string searchString,int page = 1 , int pageSize = 1)
         {
             var dao = new UserDao();
 
-            var model = dao.ListAllPaging(page, pageSize);
+            var model = dao.ListAllPaging(searchString,page, pageSize);
+            ViewBag.SearchString = searchString;
             return View(model);
         }
 
@@ -80,7 +81,7 @@ namespace OnlineShop_10.Areas.Admin.Controllers
 
                 if (user.Password == oldPass)
                 {
-                    var model = dao.ListAllPaging(page, pageSize);
+                    //var model = dao.ListAllPaging(searchString,page, pageSize);
                     //ModelState.AddModelError("", "Vui lòng nhập mật khẩu khác mật khẩu cũ");
                     //return View("Index",model);
                     return RedirectToAction("Edit", "User", new { errorMessage = "Vui lòng nhập mật khẩu khác mật khẩu cũ" });

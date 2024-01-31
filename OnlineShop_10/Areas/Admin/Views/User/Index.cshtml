@@ -17,6 +17,21 @@
         </div>
 
         <div class="card-body">
+            @using (Html.BeginForm("Index", "User", FormMethod.Get))
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-4">
+                            <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit">Tìm kiếm</button>
+                            @*Nút submit sẽ đẩy "searchString" vào trong tham số "Index"*@
+                        </div>
+                    </div>
+                </div>
+            }
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -45,10 +60,10 @@
                                     <a href="/Admin/User/Edit/@item.ID">Sửa</a>
                                     |
                                     @*<a href="/Admin/User/Delete/@item.ID">Xoá</a>*@
-                                    @Ajax.ActionLink("Xoá", "Delete", new {@id=@item.ID},new AjaxOptions
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = @item.ID }, new AjaxOptions
                                {
-                                   Confirm="Bạn có muốn xoá bản ghi này",
-                                   OnComplete = "$('#row_"+@item.ID+"').remove",
+                                   Confirm = "Bạn có muốn xoá bản ghi này",
+                                   OnComplete = "$('#row_" + @item.ID + "').remove",
                                    HttpMethod = "Delete"
                                })
                                 </td>
@@ -59,7 +74,7 @@
                         }
                     </tbody>
                 </table>
-                @Html.PagedListPager(Model,page => Url.Action("Index", new {page}))
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page ,@searchString = @ViewBag.SearchString }))
             </div>
         </div>
     </div>
