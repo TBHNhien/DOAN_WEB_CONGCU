@@ -12,13 +12,77 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Trang chủ -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/Admin/Home/Index">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>Trang chủ</span>
         </a>
     </li>
+
+    <!-- Nav Item - Hệ thống -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html" data-toggle="collapse" data-target="#collapseSystem"
+           aria-expanded="true" aria-controls="collapseSystem">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Hệ thống</span>
+        </a>
+        <div id="collapseSystem" class="collapse" aria-labelledby="collapseSystem" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/Admin/UserGroup/Index">Nhóm người dùng</a>
+                <a class="collapse-item" href="/Admin/User/Index">Người dùng</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Tin tức -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html" data-toggle="collapse" data-target="#collapseContent"
+           aria-expanded="true" aria-controls="collapseContent">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Tin tức</span>
+        </a>
+        <div id="collapseContent" class="collapse" aria-labelledby="collapseContent" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/Admin/Category/Index">Danh mục</a>
+                <a class="collapse-item" href="/Admin/Content/Index">Tin tức</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Sản phẩm -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html" data-toggle="collapse" data-target="#collapseProducts"
+           aria-expanded="true" aria-controls="collapseProducts">
+            <i class="fas fa-fw fa-warehouse"></i>
+            <span>Sản phẩm</span>
+        </a>
+        <div id="collapseProducts" class="collapse" aria-labelledby="collapseProducts" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/Admin/ProductCategory/Index">Danh mục</a>
+                <a class="collapse-item" href="/Admin/Product/Index">Tin tức</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Quản lý chung-->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html" data-toggle="collapse" data-target="#collapseGeneralManagement"
+           aria-expanded="true" aria-controls="collapseGeneralManagement">
+            <i class="fas fa-fw fa-toolbox"></i>
+            <span>Quản lý chung</span>
+        </a>
+        <div id="collapseGeneralManagement" class="collapse" aria-labelledby="collapseGeneralManagement" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/Admin/About/Index"> Giới thiệu </a>
+                <a class="collapse-item" href="/Admin/Footer/Index">Footer</a>
+                <a class="collapse-item" href="/Admin/Footer/Index">Menu</a>
+                <a class="collapse-item" href="/Admin/Footer/Index">Slide</a>
+                <a class="collapse-item" href="/Admin/Footer/Index">Phản hồi</a>
+            </div>
+        </div>
+    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">

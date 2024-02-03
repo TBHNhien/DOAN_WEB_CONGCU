@@ -165,6 +165,7 @@
     <Content Include="assets\admin\img\undraw_profile_2.svg" />
     <Content Include="assets\admin\img\undraw_profile_3.svg" />
     <Content Include="assets\admin\img\undraw_rocket.svg" />
+    <Content Include="assets\admin\js\controller\userController.js" />
     <Content Include="assets\admin\js\demo\chart-area-demo.js" />
     <Content Include="assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="assets\admin\js\demo\chart-pie-demo.js" />
@@ -3075,7 +3076,7 @@
     <Content Include="assets\admin\vendor\jquery\jquery.min.map" />
     <Content Include="assets\admin\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />

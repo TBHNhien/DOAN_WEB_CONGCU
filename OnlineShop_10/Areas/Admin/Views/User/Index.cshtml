@@ -10,6 +10,12 @@
 @section header{
     Danh sách người dùng
 }
+
+@section jsFooter{
+    <script src="/assets/admin/js/controller/userController.js"></script>
+    }
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card-header py-3">
@@ -19,13 +25,13 @@
         <div class="card-body">
             @using (Html.BeginForm("Index", "User", FormMethod.Get))
             {
-                <div class="row">
+                <div class="row form-group">
                     <div class="col-lg-12">
                         <div class="col-md-4">
-                            <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                            <input type="text" value="@ViewBag.SearchString" class="form-control" name="searchString" />
                         </div>
                         <div class="col-md-4">
-                            <button type="submit">Tìm kiếm</button>
+                            <button type="submit" class="btn btn-success">Tìm kiếm</button>
                             @*Nút submit sẽ đẩy "searchString" vào trong tham số "Index"*@
                         </div>
                     </div>
@@ -36,19 +42,21 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Email</th>
                             <th>Tài khoản</th>
                             <th>Tên</th>
-                            <th>Email</th>
+                            <th>Trạng Thái</th>
+                            <th>#</th>
 
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>#</th>
+                            <th>Email</th>
                             <th>Tài khoản</th>
                             <th>Tên</th>
-                            <th>Email</th>
+                            <th>Trạng Thái</th>
+                            <th>#</th>
 
                         </tr>
                     </tfoot>
@@ -56,6 +64,12 @@
                         @foreach (var item in Model)
                         {
                             <tr id="row_@item.ID">
+
+                                <td>@item.UserName</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                                <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status?"Kích hoạt":"Khoá")</a></td>
+
                                 <td>
                                     <a href="/Admin/User/Edit/@item.ID">Sửa</a>
                                     |
@@ -67,9 +81,6 @@
                                    HttpMethod = "Delete"
                                })
                                 </td>
-                                <td>@item.UserName</td>
-                                <td>@item.Name</td>
-                                <td>@item.Email</td>
                             </tr>
                         }
                     </tbody>
