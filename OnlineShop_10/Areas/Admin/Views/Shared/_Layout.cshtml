@@ -263,6 +263,15 @@
 
                     <h1 class="h3 mb-0 text-gray-800">@RenderSection("header", required: true)</h1>
 
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
+
+
+
                     @RenderBody()
 
                     <!-- /.container-fluid -->
@@ -332,6 +341,7 @@
 
         @*nhúng phần js dưới phần jquery và ckfinder=> nó mới ăn được*@
         @RenderSection("jsFooter", required: false)
+        <script src="/assets/admin/js/sb-admin-2.js"></script>
 
         @*@RenderSection("ClientScript",true)*@
         <script src="/assets/admin/vendor/chart.js  />

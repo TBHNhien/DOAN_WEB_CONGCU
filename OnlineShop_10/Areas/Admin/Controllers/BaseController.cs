@@ -26,5 +26,23 @@ namespace OnlineShop_10.Areas.Admin.Controllers
             }
             base.OnActionExecuting(filterContext);
         }
+
+        protected void SetAlert(string message,string type)
+        {
+            TempData["AlertMessage"] = message;
+            //TempData tên lớp , ["AlertMessage"] tên của key
+            if (type == "success")
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else if(type == "warning")
+            {
+                TempData["AlertType"] = "alert-warming";
+            }
+            else if (type == "error")
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
+        }
     }
 }
