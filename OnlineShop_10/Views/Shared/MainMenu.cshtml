@@ -1,0 +1,20 @@
+﻿@model List<Model.EF.Menu>
+
+<div class="overlay overlay-contentpush">
+    <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+    <nav>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="@item.Link" target="@item.Target" class="active">@item.Text</a></li>
+
+                @*<li><a href="about.html">About</a></li>
+                <li><a href="404.html">Team</a></li>
+                <li><a href="shop.html">Shop Now</a></li>
+                <li><a href="contact.html">Contact</a></li>*@
+            }
+
+        </ul>
+    </nav>
+</div>

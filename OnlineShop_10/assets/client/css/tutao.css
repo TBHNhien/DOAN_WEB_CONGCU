@@ -1,0 +1,25 @@
+﻿.menu1 {
+	float: right;
+}
+
+	.menu1 ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menu1 li {
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	.menu1 a {
+		text-decoration: none;
+		color: #000; /* Màu chữ đen */
+		padding: 10px 15px;
+		position: relative;
+	}
+
+		.menu1 a:hover {
+			background: rgba(255, 255, 255, 0.3); /* Background trong suốt (ví dụ: mờ trắng) */
+		}

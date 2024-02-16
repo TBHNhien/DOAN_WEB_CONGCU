@@ -1,0 +1,16 @@
+﻿@model List<Model.EF.Menu>
+
+<div class="menu1" id="menu_phu">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+        }
+
+
+        @*<li><a href="index.html">Trang chủ</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Tin tức</a></li>
+        <li><a href="#">Sản phẩm</a></li>*@
+    </ul>
+</div>
