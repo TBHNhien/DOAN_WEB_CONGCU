@@ -2926,6 +2926,7 @@
     <Content Include="assets\client\images\t3.jpg" />
     <Content Include="assets\client\images\t4.jpg" />
     <Content Include="assets\client\js\bootstrap-3.1.1.min.js" />
+    <Content Include="assets\client\js\bootstrap.min.css" />
     <Content Include="assets\client\js\classie.js" />
     <Content Include="assets\client\js\creditly.js" />
     <Content Include="assets\client\js\demo1.js" />
@@ -2933,6 +2934,7 @@
     <Content Include="assets\client\js\easy-responsive-tabs.js" />
     <Content Include="assets\client\js\imagezoom.js" />
     <Content Include="assets\client\js\jquery-2.1.4.min.js" />
+    <Content Include="assets\client\js\jquery-3.7.1.min.js" />
     <Content Include="assets\client\js\jquery-ui.js" />
     <Content Include="assets\client\js\jquery.flexslider.js" />
     <Content Include="assets\client\js\minicart.js" />
@@ -3251,6 +3253,7 @@
     <Content Include="assets\client\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\client\js\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
