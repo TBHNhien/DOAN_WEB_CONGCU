@@ -15,6 +15,24 @@ namespace Model.Dao
             db = new OnlineShopDbContext();
         }
 
+        /// <summary>
+        /// Get list product by category
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <returns></returns>
+        public List<Product> ListByCategoryId(long categoryID ,  ref int totalRecord , int pageIndex=1 , int pageSize=2)
+        {
+            totalRecord = db.Products.Where(x => x.CategoryID == categoryID).Count(); //lấy tổng các bản ghi
+            var model = db.Products.Where(x => x.CategoryID == categoryID).OrderByDescending(x=>x.CreatedDate).Skip((pageIndex - 1)* pageSize).Take(pageSize).ToList();
+
+            return model;
+        }
+
+        /// <summary>
+        /// List new product
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
         public List<Product> ListNewProduct(int top)
         {
             return db.Products.OrderByDescending(x => x.CreatedDate).Take(top).ToList();

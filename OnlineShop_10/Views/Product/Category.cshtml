@@ -1,9 +1,203 @@
-﻿@model Model.EF.ProductCategory
+﻿@model  List<Model.EF.Product>
 
 @{
-    ViewBag.Title = Model.Name;
+    var category = (Model.EF.ProductCategory)ViewBag.Category;
+    ViewBag.Title = category.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var slides = (List<Model.EF.Slide>)ViewBag.Slides;
 }
 
-<h2>@Model.Name</h2>
 
+<!-- top Products -->
+<div class="ads-grid_shop">
+    <div class="shop_inner_inf">
+        <!-- tittle heading -->
+        <!-- //tittle heading -->
+        <!-- product left -->
+        @{ Html.RenderAction("ProductCategory", "Product");}
+        <!-- //product left -->
+        <!-- product right -->
+
+
+        <div class="left-ads-display col-md-9">
+            <div class="wrapper_top_shop">
+                @if (slides != null)
+                {
+                    var item = slides.First(slide => slide.ID == 1);
+                    <div class="col-md-6 shop_left">
+                        <a href="@item.Link">
+                            <img src="@item.Image" alt="">
+                        </a>
+                        <h6>40% off</h6>
+                    </div>
+                }
+
+                @if (slides != null)
+                {
+                    var item = slides.First(slide => slide.ID == 2);
+                    <div class="col-md-6 shop_left">
+                        <a href="@item.Link">
+                            <img src="@item.Image" alt="">
+                        </a>
+                        <h6>50% off</h6>
+                    </div>
+                }
+
+
+
+                <!-- product-sec1 -->
+            <div class="product-sec1">
+                <!--/mens-->
+                <div class="content">
+                    <div class="heading">
+                        <h3>@category.Name</h3>
+                    </div>
+                </div>
+                <!--/mens-->
+                @foreach (var item in Model)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-4 product-men">
+                        809
+                        <div class="product-shoe-info shoe">
+                            <div class="men-pro-item">
+                                <div class="men-thumb-item">
+                                    <img src="@item.Image" alt="@item.Name">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="@url" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">New</span>
+                                </div>
+                                <div class="item-info-product">
+                                    <h4>
+                                        <a href="single.html">@item.Name </a>
+                                    </h4>
+                                    <div class="info-product-price">
+                                        <div class="grid_meta">
+                                            <div class="product_price">
+                                                <div class="grid-price ">
+                                                    <span class="money ">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ" )</span>
+                                                </div>
+                                            </div>
+                                            <ul class="stars">
+                                                <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="shoe single-item hvr-outline-out">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart">
+                                                <input type="hidden" name="add" value="1">
+                                                <input type="hidden" name="shoe_item" value=@item.Name>
+                                                <input type="hidden" name="amount" value=@(item.Price.HasValue?item.Price.Value.ToString("NO"):"Liên hệ" )>
+                                                <button type="submit" class="shoe-cart pshoe-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+
+                                                <a href="/gio-hang/@item.ID"></a>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                <!-- //mens -->
+                <!-- /mens -->
+                <div class="content">
+                    <div class="heading">
+                        <h3>Sản phẩm hot</h3>
+                    </div>
+                </div>
+
+                <!-- //mens -->
+                <div class="clearfix"></div>
+
+            </div>
+
+                <!-- //product-sec1 -->
+
+                @if (slides != null)
+                {
+                    var item = slides.First(slide => slide.ID == 4);
+                    <div class="col-md-6 shop_left shp">
+                        <a href="@item.Link">
+                            <img src="@item.Image" alt="">
+                        </a>
+                        <h6>21% off</h6>
+                    </div>
+                }
+
+                @if (slides != null)
+                {
+                    var item = slides.First(slide => slide.ID == 3);
+                    <div class="col-md-6 shop_right shp">
+                        <a href="@item.Link">
+                            <img src="@item.Image" alt="">
+                        </a>
+                        <h6>31% off</h6>
+                    </div>
+                }
+
+
+                <div class="clearfix"></div>
+                <!--Phân trang-->
+                @if (ViewBag.TotalPage > 1)
+                {
+                    var pageDisplay = (int)(ViewBag.MaxPage);
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+
+                    //Create numeric links
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                    var link = "/san-pham/" + category.MetaTitle + "-" + category.ID;
+
+                    <nav>
+                        <ul class="pagination">
+                            @if (currentPage > ViewBag.First)
+                            {
+                                <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                                <li><a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a></li>
+
+                            }
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (currentPage == i)
+                                {
+                                    <li><a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>                                    
+                                }
+                                else
+                                {
+                                    <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                                }
+                            }
+                            @if (currentPage < totalPage)
+                            {
+                                <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                                <li><a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                            }
+                        </ul>
+                    </nav>
+
+                }
+                else
+                {
+                    <span>Không có bản ghi nào</span>
+            }
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //top products -->
